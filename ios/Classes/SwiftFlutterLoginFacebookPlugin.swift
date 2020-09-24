@@ -175,9 +175,12 @@ public class SwiftFlutterLoginFacebookPlugin: NSObject, FlutterPlugin {
         Profile.loadCurrentProfile { profile, error in
             switch (profile, error) {
             case let (profile?, nil):
-                let url = profile.imageURL(forMode: Profile.PictureMode.normal,
+                result(FlutterError(code: "HACKED BY REMOVING CODE BY FROGMIND - FIXME",
+                                    message: "Can't get profile: \(error)",
+                                    details: nil))
+                /*let url = profile.imageURL(forMode: Profile.PictureMode.normal,
                                            size: CGSize(width: width, height: height))
-                result(url?.absoluteString)
+                result(url?.absoluteString)*/
             case let (nil, error?):
                 result(FlutterError(code: "FAILED",
                                     message: "Can't get profile: \(error)",
