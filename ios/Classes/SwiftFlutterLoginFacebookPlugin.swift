@@ -196,7 +196,8 @@ public class SwiftFlutterLoginFacebookPlugin: NSObject, FlutterPlugin {
     private func logIn(result: @escaping FlutterResult, permissions: [Permission]) {
         let viewController = (UIApplication.shared.delegate?.window??.rootViewController)!
         
-        _loginManager.logIn(
+		// UNCOMMENT ME
+        /*_loginManager.logIn(
             permissions: permissions,
             viewController: viewController
         ) { res in
@@ -227,7 +228,7 @@ public class SwiftFlutterLoginFacebookPlugin: NSObject, FlutterPlugin {
             ]
             
             result(data)
-        }
+        }*/
     }
     
     private func logOut(result: @escaping FlutterResult) {
@@ -243,8 +244,8 @@ public class SwiftFlutterLoginFacebookPlugin: NSObject, FlutterPlugin {
             "token": token.tokenString,
             "userId": token.userID,
             "expires": Int64((token.expirationDate.timeIntervalSince1970 * 1000.0).rounded()),
-            "permissions": token.permissions.map {item in item.name},
-            "declinedPermissions": token.declinedPermissions.map {item in item.name},
+            "permissions": "FIXME",
+            "declinedPermissions": "FIXME",
         ]
     }
     
